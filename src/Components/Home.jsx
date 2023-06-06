@@ -1,7 +1,10 @@
-import React from "react";
-import ShowList from "./Showlist";
-import ShowDetails from "./ShowDetails";
+import React, { useState } from "react";
+
 import BookingForm from "./BookingForm";
+import ShowList from "./Showlist";
+import ShowDetail from "./ShowDetail";
+import { Col } from "react-bootstrap";
+import Nav from "./Nav";
 
 const Home = () => {
   const [selectedShow, setSelectedShow] = useState(null);
@@ -12,15 +15,24 @@ const Home = () => {
 
   return (
     <div>
-      <h1>TV Shows App</h1>
-      {!selectedShow ? (
-        <ShowList onShowSelect={handleShowSelect} />
-      ) : (
-        <div>
-          <ShowDetails show={selectedShow} />
-          <BookingForm show={selectedShow} />
-        </div>
-      )}
+      <Nav></Nav>
+      <div>
+        {!selectedShow ? (
+          <Col>
+            {" "}
+            <ShowList onShowSelect={handleShowSelect} />
+          </Col>
+        ) : (
+          <div>
+            <Col>
+              <ShowDetail show={selectedShow} />
+            </Col>
+            <Col>
+              <BookingForm show={selectedShow} />
+            </Col>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

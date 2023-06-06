@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button, Card, Form } from "react-bootstrap";
 
 const BookingForm = ({ show }) => {
   const [name, setName] = useState("");
@@ -21,31 +22,33 @@ const BookingForm = ({ show }) => {
   };
 
   return (
-    <div>
-      <h2>Booking Form</h2>
-      <h3>Movie: {show.name}</h3>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={handleNameChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </div>
-        <button type="submit">Book Now</button>
-      </form>
-    </div>
+    <Card>
+      <Card.Body>
+        <Card.Title>Booking Form</Card.Title>
+        <Card.Subtitle className="mb-4">Movie: {show.name}</Card.Subtitle>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group>
+            <Form.Label>Name:</Form.Label>
+            <Form.Control
+              type="text"
+              value={name}
+              onChange={handleNameChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Email:</Form.Label>
+            <Form.Control
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Book Now
+          </Button>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 };
 
