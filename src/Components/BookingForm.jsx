@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const BookingForm = ({ show }) => {
   const [name, setName] = useState("");
@@ -15,10 +16,15 @@ const BookingForm = ({ show }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Save the form data to local/session storage
+
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
     console.log("Form submitted:", { name, email });
+    Swal.fire({
+      icon: "success",
+      title: "Yes...",
+      text: "Successfully Booking Done",
+    });
   };
 
   return (
