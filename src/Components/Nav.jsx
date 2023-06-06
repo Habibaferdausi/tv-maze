@@ -5,7 +5,7 @@ const Nav = () => {
   return (
     <Navbar variant="light" bg="primary">
       <Container>
-        <Navbar.Brand className="text-white" href="#">
+        <Navbar.Brand className="text-white" href="/">
           TV Show
         </Navbar.Brand>
       </Container>
